@@ -106,10 +106,13 @@ public class Controller {
 
                 String modern = String.valueOf(upperChars);
 
-                output.setText(output.getText().replaceAll(String.valueOf(chars),modern));
-                output.positionCaret(output.getText().indexOf(modern));
-                output.selectEndOfNextWord();
-                
+                while (output.getText().contains(searchField.getText())) {
+
+                    output.setText(output.getText().replaceAll(searchField.getText(), modern));
+
+                    output.positionCaret(output.getText().indexOf(modern));
+                    output.selectEndOfNextWord();
+                }
             }
         }
     }
